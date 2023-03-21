@@ -12,12 +12,12 @@ public class ImageManipulation {
      *  Write a statement that will display the image in a window
      */
     public static void main(String[] args) {
-//        APImage image = new APImage("cyberpunk2077.jpg");
-//        image.draw();
-//        grayScale("cyberpunk2077.jpg");
-//        blackAndWhite("cyberpunk2077.jpg");
-//        edgeDetection("cyberpunk2077.jpg", 70);
-//        reflectImage("cyberpunk2077.jpg");
+        APImage image = new APImage("cyberpunk2077.jpg");
+        image.draw();
+        grayScale("cyberpunk2077.jpg");
+        blackAndWhite("cyberpunk2077.jpg");
+        edgeDetection("cyberpunk2077.jpg", 20);
+        reflectImage("cyberpunk2077.jpg");
         rotateImage("cyberpunk2077.jpg");
     }
 
@@ -90,9 +90,9 @@ public class ImageManipulation {
                 }
                 else
                 {
-                    currPixel.setRed(100);
-                    currPixel.setGreen(100);
-                    currPixel.setBlue(100);
+                    currPixel.setRed(255);
+                    currPixel.setGreen(255);
+                    currPixel.setBlue(255);
                 }
 
                 image.setPixel(j, i, currPixel);
@@ -102,7 +102,6 @@ public class ImageManipulation {
         image.draw();
     }
 
-//    ‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️‼️
     /** CHALLENGE Three: Edge Detection
      *
      * INPUT: the complete path file name of the image
@@ -127,59 +126,51 @@ public class ImageManipulation {
      *  */
     public static void edgeDetection(String pathToFile, int threshold) {
         APImage image = new APImage(pathToFile);
+        APImage newImage = new APImage(image.getWidth(), image.getHeight());
         Pixel currPixel;
         int avgColour;
         int avgLeftColour;
         int avgBelowColour;
 
         //rows
-        for (int i = 0; i < image.getHeight(); i++)
+        //can just start from (1, 1) to avoid checking for corners
+        for (int i = 1; i < image.getHeight(); i++)
         {
             //columns
-            for (int j = 0; j < image.getWidth(); j++)
+            for (int j = 1; j < image.getWidth(); j++)
             {
                 //average colour value of the current pixel
-                currPixel = image.getPixel(j, i);
-                avgColour = getAverageColour(image.getPixel(j, i));
+                currPixel = image.getPixel(j, i).clone();
+                avgColour = getAverageColour(currPixel);
 
                 //average colour value of the pixel to the left of the current pixel
-                if(j > 0)
-                {
-                    avgLeftColour = getAverageColour(image.getPixel(j - 1, i));
-                }
-                else
-                {
-                    avgLeftColour = 0;
-                }
+                avgLeftColour = getAverageColour(image.getPixel(j - 1, i));
 
                 //average colour value of the pixel below the current pixel
-                if(i < image.getHeight() - 1)
-                {
-                    avgBelowColour = getAverageColour(image.getPixel(j, i + 1));
-                }
-                else
-                {
-                    avgBelowColour = 0;
-                }
+                //rmb (0, 0) is the bottom left corner
+                avgBelowColour = getAverageColour(image.getPixel(j, i - 1));
 
-                if(Math.abs(avgColour - avgLeftColour) > threshold || Math.abs(avgColour - avgBelowColour) > threshold)
+                if((Math.abs(avgColour - avgLeftColour) > threshold) ||
+                        (Math.abs(avgColour - avgBelowColour) > threshold))
                 {
+                    //can also choose not to create currPixel object
+                    //instead, directly create a newPixel object to customise RGB values and set to newImage
                     currPixel.setRed(0);
                     currPixel.setGreen(0);
                     currPixel.setBlue(0);
                 }
                 else
                 {
-                    currPixel.setRed(100);
-                    currPixel.setGreen(100);
-                    currPixel.setBlue(100);
+                    currPixel.setRed(255);
+                    currPixel.setGreen(255);
+                    currPixel.setBlue(255);
                 }
 
-                image.setPixel(j, i, currPixel);
+                newImage.setPixel(j, i, currPixel);
             }
         }
 
-        image.draw();
+        newImage.draw();
     }
 
     /** CHALLENGE Four: Reflect Image

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="Added APImage, ImageFieFilter, ImagePanel, and Pixel classes.">
+    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="ch3 edge detection error :(">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/ImageManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/ImageManipulation.java" afterDir="false" />
     </list>
@@ -64,17 +64,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ImageManipulation" />
@@ -92,7 +81,11 @@
       <option name="presentableId" value="Default" />
       <updated>1677563803459</updated>
       <workItem from="1678978757143" duration="117000" />
-      <workItem from="1679217070087" duration="8685000" />
+      <workItem from="1679217070087" duration="8901000" />
+      <workItem from="1679365572538" duration="204000" />
+      <workItem from="1679370194286" duration="228000" />
+      <workItem from="1679382357324" duration="711000" />
+      <workItem from="1679392094648" duration="1300000" />
     </task>
     <task id="LOCAL-00001" summary="Added method stubs in ImageManipulation class.">
       <created>1677570555045</created>
@@ -122,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678174941477</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ch3 edge detection error :(">
+      <created>1679242505435</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679242505435</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +143,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added method stubs in ImageManipulation class." />
     <MESSAGE value="Added APImage, ImageFieFilter, ImagePanel, and Pixel classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added APImage, ImageFieFilter, ImagePanel, and Pixel classes." />
+    <MESSAGE value="ch3 edge detection error :(" />
+    <option name="LAST_COMMIT_MESSAGE" value="ch3 edge detection error :(" />
   </component>
 </project>
